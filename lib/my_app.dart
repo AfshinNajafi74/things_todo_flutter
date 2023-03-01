@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:things_todo/main_screen.dart';
+import 'package:things_todo/screens/login_screen.dart';
+import 'package:get/get.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      locale: Locale("fa"),
+      home: LoginScreen(),
     );
   }
 }
