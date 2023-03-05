@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:things_todo/screens/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -59,7 +60,9 @@ class LoginScreen extends StatelessWidget {
                     SizedBox(height: 20,),
                     /// login btn
                     ElevatedButton(
-                      onPressed: (){},
+                      onPressed: (){
+                        Get.to(HomeScreen());
+                      },
                       child: Text("ورود",style: TextStyle(fontFamily: "vazir",fontSize: 24),),
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xff6035D0),

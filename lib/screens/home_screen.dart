@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:things_todo/screens/home_daily.dart';
+import 'package:things_todo/screens/home_monthly.dart';
+import 'package:things_todo/screens/home_weekly.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -64,6 +67,41 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             ),
           ),
           /// tab bar
+          Container(
+            height: Get.height / 12.05,
+            decoration: BoxDecoration(
+              color: Color(0xff7646FF),
+              border: Border.all(color: Color(0xff7646FF))
+            ),
+            child: TabBar(
+
+                controller: tabController,
+                labelStyle: TextStyle(fontFamily: "vazir",fontWeight: FontWeight.bold,fontSize: 20,color: Color(0xffffffff)),
+                unselectedLabelStyle: TextStyle(fontFamily: "vazir",fontSize: 16,color: Colors.white70),
+                indicatorColor: Color(0xffffffff),
+                tabs: [
+                  Tab(
+                    text: "روزانه",
+                  ),
+                  Tab(
+                    text: "هفتگی",
+                  ),
+                  Tab(
+                    text: "ماهانه",
+                  )
+                ]
+            ),
+          ),
+          Expanded(
+            child: TabBarView(
+              controller: tabController,
+              children: [
+                HomeDaily(),
+                HomeMonthly(),
+                HomeWeekly()
+              ],
+            )
+          )
         ],
       ),
     );
