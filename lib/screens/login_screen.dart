@@ -36,7 +36,7 @@ class LoginScreen extends StatelessWidget {
                                 hintText: "نام کاربری",
                                 hintStyle: TextStyle(fontFamily: "vazir"),
                                 prefixIcon: Icon(Icons.person_outline,),
-                                border: InputBorder.none
+                                border: InputBorder.none,
                             ),
                           ),
                           Divider(

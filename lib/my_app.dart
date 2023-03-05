@@ -3,6 +3,8 @@ import 'package:things_todo/main_screen.dart';
 import 'package:things_todo/screens/login_screen.dart';
 import 'package:get/get.dart';
 
+import 'screens/home_screen.dart';
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
     return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
       locale: Locale("fa"),
-      home: LoginScreen(),
+      home: HomeScreen(),
     );
   }
 }
