@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   @override
   void initState() {
     super.initState();
-    tabController = TabController(length: 3, vsync: this, );
+    tabController = TabController(length: 3, vsync: this);
   }
 
   @override
@@ -74,7 +74,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               border: Border.all(color: Color(0xff7646FF))
             ),
             child: TabBar(
-
                 controller: tabController,
                 labelStyle: TextStyle(fontFamily: "vazir",fontWeight: FontWeight.bold,fontSize: 20,color: Color(0xffffffff)),
                 unselectedLabelStyle: TextStyle(fontFamily: "vazir",fontSize: 16,color: Colors.white70),
