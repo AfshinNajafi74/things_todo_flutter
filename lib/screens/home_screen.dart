@@ -4,6 +4,8 @@ import 'package:things_todo/screens/home_daily.dart';
 import 'package:things_todo/screens/home_monthly.dart';
 import 'package:things_todo/screens/home_weekly.dart';
 
+import 'new_task.dart';
+
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
 
@@ -29,7 +31,12 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         backgroundColor: Color(0xff7646FF),
         actions: [
           SizedBox(width: 10,),
-          Icon(Icons.add,size: 30,),
+          IconButton(
+            onPressed: () {
+              ///
+            },
+            icon: Icon(Icons.add,size: 30,)
+          ),
           SizedBox(width: 5,),
           Icon(Icons.notifications_active_outlined,size: 30),
           Spacer(),
