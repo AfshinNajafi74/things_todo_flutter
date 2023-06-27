@@ -1,6 +1,6 @@
 # things_todo
 
-things_todo.dev
+Things ToDo App  implemented with Hive(No sql DataBase ) and GetX(Mvc architecture)
 
 ## Getting Started
 
