@@ -6,6 +6,7 @@ import 'package:things_todo/controller/login_controller.dart';
 import 'package:things_todo/model/user_model/user_model.dart';
 import 'package:things_todo/route/screen_names.dart';
 import 'package:things_todo/widgets/app_text_field.dart';
+import 'package:things_todo/widgets/custom_snack_bar.dart';
 import 'package:things_todo/widgets/things_to_do_button.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -82,11 +83,25 @@ class LoginScreen extends StatelessWidget {
                       ThingsToDoButton(
                           name: "برو بریم",
                           onPressed: () {
-                            loginController.userBox.add(UserModel(name: loginController.userNameController.text, image: filePickerController.newImage!.path));
-                            loginController.userNameController.clear();
-                            Get.offAllNamed(ScreenNames.homeScreen);
+                            if (filePickerController.newImage == null) {
+                              customSnackBar(context: context,
+                                  color: Colors.red,
+                                  content: "عکس پروفایل فراموش نشه !");
+                            } else if (loginController.userNameController.text
+                                .isEmpty) {
+                              customSnackBar(context: context,
+                                  color: Colors.red,
+                                  content: "یادت رفت نام کاربری خودتو وارد کنی!");
+                            } else {
+                              loginController.userBox.add(UserModel(
+                                  name: loginController.userNameController.text,
+                                  image: filePickerController.newImage!.path));
+                              loginController.userNameController.clear();
+                              Get.offAllNamed(ScreenNames.homeScreen);
+                              customSnackBar(context: context, color: Colors.green,content: "خــوش اومــدی رفیق");
+                            }
                           }
-                      ),
+                        ),
                     ],
                   ),
                 ),
