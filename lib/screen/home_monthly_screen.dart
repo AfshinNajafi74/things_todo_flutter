@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class HomeMonthly extends StatelessWidget {
-  const HomeMonthly({Key? key}) : super(key: key);
+class HomeMonthlyScreen extends StatelessWidget {
+  const HomeMonthlyScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  Center(
+    return  const Center(
       child: Text("HomeMonthly"),
     );
   }
