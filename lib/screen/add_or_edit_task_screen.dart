@@ -10,7 +10,6 @@ import '../widgets/app_text_field.dart';
 
 class AddOrEditTaskScreen extends StatefulWidget {
   const AddOrEditTaskScreen({Key? key,this.isEditing = true}) : super(key: key);
-
   final bool isEditing;
 
   @override
