@@ -17,7 +17,7 @@ class Screens{
     GetPage(name: ScreenNames.loginScreen, page: () =>  LoginScreen(),bindings: [LoginBindings(),FilePickerBindings()]),
     GetPage(name: ScreenNames.homeScreen, page: () => const HomeScreen(),bindings: [FilePickerBindings(),TaskBindings(),LoginBindings(),WeeklyBindings()]),
     GetPage(name: ScreenNames.addOrEditTaskScreen, page: () => const AddOrEditTaskScreen(),binding: TaskBindings()),
-    GetPage(name: ScreenNames.homeDailyScreen, page: () => const HomeDailyScreen(),bindings: [TaskBindings(),LoginBindings(),FilePickerBindings()]),
+    GetPage(name: ScreenNames.homeDailyScreen, page: () =>  HomeDailyScreen(),bindings: [LoginBindings()]),
     GetPage(name: ScreenNames.homeWeeklyScreen, page: () =>  HomeWeeklyScreen(),binding: WeeklyBindings()),
     GetPage(name: ScreenNames.homeMonthlyScreen, page: () => const HomeMonthlyScreen(),),
   ];

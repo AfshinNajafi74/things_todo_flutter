@@ -2,28 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:persian_datetime_picker/persian_datetime_picker.dart';
 import 'package:things_todo/component/extensions.dart';
-import 'package:things_todo/controller/file_picker_controller.dart';
 import 'package:things_todo/controller/login_controller.dart';
 import 'package:things_todo/controller/tasks_controller.dart';
 import 'package:things_todo/screen/add_or_edit_task_screen.dart';
 import 'package:things_todo/widgets/custom_show_dialog.dart';
 
-class HomeDailyScreen extends StatefulWidget {
-  const HomeDailyScreen({Key? key}) : super(key: key);
 
-  @override
-  State<HomeDailyScreen> createState() => _HomeDailyScreenState();
-}
-
-class _HomeDailyScreenState extends State<HomeDailyScreen> with TickerProviderStateMixin {
-  TasksController tasksController = Get.find<TasksController>();
-  LoginController loginController = Get.find<LoginController>();
-  FilePickerController filePickerController = Get.find<FilePickerController>();
-
-  @override
-  void initState() {
-    super.initState();
-  }
+class HomeDailyScreen extends StatelessWidget  {
+  HomeDailyScreen({super.key});
+  final LoginController loginController = Get.find<LoginController>();
 
   @override
   Widget build(BuildContext context) {
@@ -224,7 +211,7 @@ class _HomeDailyScreenState extends State<HomeDailyScreen> with TickerProviderSt
                       Text("${Jalali.now()}".todayDataCustomFormat()),
                       const Spacer(),
                       Text(
-                        tasksController.countIsDone.toString(),
+                        controller.countIsDone.toString(),
                         style: const TextStyle(color: Colors.green),
                       ),
                       const SizedBox(
@@ -234,7 +221,7 @@ class _HomeDailyScreenState extends State<HomeDailyScreen> with TickerProviderSt
                       const SizedBox(
                         width: 5,
                       ),
-                      Text(tasksController.taskBox.length.toString(),
+                      Text(controller.taskBox.length.toString(),
                           style: const TextStyle(color: Colors.red)),
                       const SizedBox(
                         width: 10,

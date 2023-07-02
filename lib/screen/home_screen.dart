@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     return Expanded(
         child: TabBarView(
       controller: tasksController.tabController,
-      children: [const HomeDailyScreen(), HomeWeeklyScreen(), const HomeMonthlyScreen()],
+      children: [ HomeDailyScreen(), HomeWeeklyScreen(), const HomeMonthlyScreen()],
     ));
   }
 
