@@ -8,9 +8,28 @@ import 'package:things_todo/screen/add_or_edit_task_screen.dart';
 import 'package:things_todo/widgets/custom_show_dialog.dart';
 
 
-class HomeDailyScreen extends StatelessWidget  {
+class HomeDailyScreen extends StatefulWidget  {
   HomeDailyScreen({super.key});
+
+  @override
+  State<HomeDailyScreen> createState() => _HomeDailyScreenState();
+}
+
+class _HomeDailyScreenState extends State<HomeDailyScreen> with SingleTickerProviderStateMixin{
   final LoginController loginController = Get.find<LoginController>();
+  late AnimationController _animationController;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(vsync: this,duration: Duration(milliseconds: 200));
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -123,35 +142,35 @@ class HomeDailyScreen extends StatelessWidget  {
   }
 
   Widget starButtonToChangeStatus(TasksController tasksController, int index) {
-    return IconButton(
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
-        onPressed: () {
-          tasksController.changeStatusDone(index);
-          tasksController.taskBox.getAt(index)!.isDone =
-              tasksController.taskBox.getAt(index)!.isDone ? false : true;
-          if (tasksController.taskBox.getAt(index)!.isDone) {
-            tasksController.increment();
-          } else {
-            tasksController.decrement();
-          }
-        },
-        icon: AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.easeInOut,
-          transform: Matrix4.identity()
-            ..scale(tasksController.taskBox.getAt(index)!.isDone ? 1.0 : 0.8),
-          child: Icon(
+    return AnimatedSwitcher(
+      duration: Duration(milliseconds: 500),
+      transitionBuilder: (child, animation) {
+        return ScaleTransition(scale: animation,child: child);
+      },
+      child: IconButton(
+          key: ValueKey<bool>(tasksController.taskBox.getAt(index)!.isDone),
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          onPressed: () {
+            tasksController.changeStatusDone(index);
+            tasksController.taskBox.getAt(index)!.isDone =
+            tasksController.taskBox.getAt(index)!.isDone ? false : true;
+            if (tasksController.taskBox.getAt(index)!.isDone) {
+              tasksController.increment();
+            } else {
+              tasksController.decrement();
+            }
+          },
+          icon: Icon(
             tasksController.taskBox.getAt(index)!.isDone
                 ? Icons.star
                 : Icons.star_outline,
             color: tasksController.taskBox.getAt(index)!.isDone
                 ? const Color(0xffFFD700)
                 : Colors.grey,
-          ),
-        ));
+          )),
+    );
   }
-
   Widget _priorityColorContainer(TasksController tasksController, int index) {
     return Container(
       width: 20,
